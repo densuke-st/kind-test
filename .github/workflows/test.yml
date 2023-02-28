@@ -1,14 +1,17 @@
 name: Create Cluster
 
 on:
-  - workflow_dispatch
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   create-cluster:
     runs-on: ubuntu-latest
     steps:
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action@v0.17.0
+        uses: helm/kind-action@v1.4.0
       - name: Build image
         run: |
           docker build -t test src/
