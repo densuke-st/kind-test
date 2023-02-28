@@ -9,4 +9,5 @@ spec:
       containers:
       - name: test
         image: test
+        imagePullPolicy: Never
       restartPolicy: Never
