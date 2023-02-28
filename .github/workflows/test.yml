@@ -16,7 +16,16 @@ jobs:
         uses: actions/checkout@v3
       - name: Build image
         run: |
-          pwd
-          ls -la
           docker build -t test src/
+      - name: Load image on K8s
+        run: |
+          kubectl apply -f ./job-test.yml
+          sleep 5
+      - name: Get result
+        run: |
+          kubectl logs job/myjob
+      - name: Delete job
+        run: |
+          kubectl delete job/myjob
+
 
