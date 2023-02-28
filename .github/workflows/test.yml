@@ -19,7 +19,7 @@ jobs:
           docker build -t test src/
       - name: load image to cluster
         run: |
-          kind load docker-image test
+          kind load docker-image test -n chart-testing
       - name: Load image on K8s
         run: |
           kubectl apply -f ./job-test.yml
