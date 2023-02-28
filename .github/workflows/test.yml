@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Create k8s Kind Cluster
-        uses: helm/kind-action
+        uses: helm/kind-action@v0.17.0
       - name: Build image
         run: |
           docker build -t test src/
