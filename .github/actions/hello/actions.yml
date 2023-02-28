@@ -1,0 +1,9 @@
+name: あいさつしましょう
+description: あいさつは大切
+author: SATO Daisuke
+
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello, World
+      shell: bash
